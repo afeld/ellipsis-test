@@ -25,20 +25,34 @@
     <script>
       $(function(){
         var plugins = [
-          { name: 'clamp' },
-          { name: 'jquery.autoellipsis' },
-          { name: 'jquery.dotdotdot' }
+          {
+            name: 'clamp',
+            link: 'https://github.com/josephschmitt/Clamp.js'
+          },
+          {
+            name: 'jquery.autoellipsis',
+            link: 'http://pvdspek.github.com/jquery.autoellipsis/'
+          },
+          {
+            name: 'jquery.dotdotdot',
+            link: 'http://dotdotdot.frebsite.nl/'
+          }
         ];
 
         var $testsuites = $('#testsuites'),
           $testsuite = $('.testsuite'),
-          plugin, $clone;
+          plugin, $pluginLink, $clone;
 
+        // clone the test suite for each plugin
         for (var i = 0; i < plugins.length; i++){
           plugin = plugins[i];
           $clone = $testsuite.clone();
           plugin.$clone = $clone;
-          $clone.find('.pluginName').text(plugin.name);
+
+          $pluginLink = $clone.find('.pluginLink');
+          $pluginLink.attr('href', plugin.link);
+          $pluginLink.find('h2').text(plugin.name);
+
           $testsuites.append($clone);
         }
 
@@ -53,7 +67,7 @@
       <h1>Multiline Ellipses Library Tests</h1>
       <div id="testsuites">
         <div class="testsuite">
-          <h2 class="pluginName"></h2>
+          <a class="pluginLink"><h2></h2></a>
           <div class="testcase divWithHeight">
             <h3>Div with height</h3>
             <div class="target">
