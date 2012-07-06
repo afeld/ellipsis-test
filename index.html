@@ -34,7 +34,8 @@
             name: 'clamp',
             link: 'https://github.com/josephschmitt/Clamp.js',
             exec: function($el){
-              $clamp($el.get(0), { clamp: 'auto' });
+              var el = $el.get(0);
+              $clamp(el, { clamp: 'auto', useNativeClamp: false });
             }
           },
           {
@@ -72,9 +73,15 @@
 
           $testsuites.append($testSuite);
 
-          $testSuite.find('.testcase').each(function(i, el){
-            var $el = $(el);
-            plugin.exec($el);
+          $testSuite.find('.testcase .target').each(function(){
+            var $el = $(this);
+            try {
+              plugin.exec($el);
+            } catch(e){
+              $el
+                .css('background-color', 'red')
+                .text(e.toString());
+            }
           });
         }
       });
