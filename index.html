@@ -22,6 +22,35 @@
       .container {
         height: 150px;
       }
+
+      .table {
+        display: table;
+        table-layout: fixed;
+        width: 100%;
+      }
+      .tableRow {
+        display: table-row;
+      }
+      .tableCell {
+        display: table-cell;
+        vertical-align: middle;
+        width: 100%;
+
+      }
+
+      .smallTableWithChildren .tableRow {
+        height: 150px;
+      }
+      .smallTableWithChildren .tableCell {
+        /*height: 150px;*/
+      }
+
+      .tallTableWithChildren .tableRow {
+        height: 510px;
+      }
+      .tallTableWithChildren .tableCell {
+        height: 509px;
+      }
     </style>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
     <script src="vendor/clamp.js"></script>
@@ -143,6 +172,34 @@
             <a href="https://jux.com">
               Fingerstache duis occaecat incididunt, mcsweeney's locavore dreamcatcher sunt godard occupy cillum eiusmod consectetur ad forage. Cardigan twee +1 laboris. Twee polaroid bicycle rights sunt DIY PBR, organic flexitarian mlkshk cardigan iphone ullamco pour-over skateboard. Vero aesthetic sartorial id locavore cillum post-ironic, 8-bit wayfarers keffiyeh williamsburg chillwave dolor. Cillum aesthetic aute, +1 cred officia squid shoreditch mumblecore artisan typewriter cosby sweater ethical direct trade. Consequat brunch four loko, wes anderson excepteur seitan incididunt commodo bushwick hoodie Austin.
             </a>
+          </div>
+        </div>
+
+        <div class="testcase smallTableWithChildren">
+          <h3>Table cell smaller than content</h3>
+          <div class="table">
+            <div class="tableRow target">
+              <div class="tableCell">
+                <div>The Title Fingerstache duis occaecat incididunt, mcsweeney's locavore dreamcatcher sunt godard occupy cillum eiusmod consectetur ad forage. </div>            
+                <div>
+                  Fingerstache duis occaecat incididunt, mcsweeney's locavore dreamcatcher sunt godard occupy cillum eiusmod consectetur ad forage. Cardigan twee +1 laboris. Twee polaroid bicycle rights sunt DIY PBR, organic flexitarian mlkshk cardigan iphone ullamco pour-over skateboard. Vero aesthetic sartorial id locavore cillum post-ironic, 8-bit wayfarers keffiyeh williamsburg chillwave dolor. Cillum aesthetic aute, +1 cred officia squid shoreditch mumblecore artisan typewriter cosby sweater ethical direct trade. Consequat brunch four loko, wes anderson excepteur seitan incididunt commodo bushwick hoodie Austin.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testcase tallTableWithChildren">
+          <h3>Table cell larger than children, vertically centered</h3>
+          <div class="table">
+            <div class="tableRow target">
+              <div class="tableCell">
+                <div>The Title Fingerstache duis occaecat incididunt, mcsweeney's locavore dreamcatcher sunt godard occupy cillum eiusmod consectetur ad forage. </div>            
+                <div>
+                  Fingerstache duis occaecat incididunt, mcsweeney's locavore dreamcatcher sunt godard occupy cillum eiusmod consectetur ad forage. Cardigan twee +1 laboris. Twee polaroid bicycle rights sunt DIY PBR, organic flexitarian mlkshk cardigan iphone ullamco pour-over skateboard. Vero aesthetic sartorial id locavore cillum post-ironic, 8-bit wayfarers keffiyeh williamsburg chillwave dolor. Cillum aesthetic aute, +1 cred officia squid shoreditch mumblecore artisan typewriter cosby sweater ethical direct trade. Consequat brunch four loko, wes anderson excepteur seitan incididunt commodo bushwick hoodie Austin.
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
