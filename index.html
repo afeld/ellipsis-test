@@ -5,21 +5,23 @@
       #wrapper {
       }
       .testsuite {
-        width: 30%;
+        width: 33%;
         float: left;
       }
       .testcase {
-        margin: 30px 15px;
+        margin: 50px 15px;
         border: 1px solid black;
       }
       .target {
         background-color: #A6E22A;
+        background-color: rgba(166,266,42,0.7);
+        border: 1px dashed gray;
       }
 
       .divWithHeight .target {
         height: 150px;
       }
-      .containerWithHeight {
+      .container {
         height: 150px;
       }
     </style>
@@ -96,13 +98,45 @@
           <div class="testcase divWithHeight">
             <h3>Div with it's own 'height'</h3>
             <div class="target">
-              Fingerstache duis occaecat incididunt, mcsweeney's locavore dreamcatcher sunt godard occupy cillum eiusmod consectetur ad forage. Cardigan twee +1 laboris. Twee polaroid bicycle rights sunt DIY PBR, organic flexitarian mlkshk cardigan iphone ullamco pour-over skateboard. Vero aesthetic sartorial id locavore cillum post-ironic, 8-bit wayfarers keffiyeh williamsburg chillwave dolor. Cillum aesthetic aute, +1 cred officia squid shoreditch mumblecore artisan typewriter cosby sweater ethical direct trade. Consequat brunch four loko, wes anderson excepteur seitan incididunt commodo bushwick hoodie Austin thundercats nulla. Art party street art eiusmod, kogi laboris whatever freegan elit.
+              Fingerstache duis occaecat incididunt, mcsweeney's locavore dreamcatcher sunt godard occupy cillum eiusmod consectetur ad forage. Cardigan twee +1 laboris. Twee polaroid bicycle rights sunt DIY PBR, organic flexitarian mlkshk cardigan iphone ullamco pour-over skateboard. Vero aesthetic sartorial id locavore cillum post-ironic, 8-bit wayfarers keffiyeh williamsburg chillwave dolor. Cillum aesthetic aute, +1 cred officia squid shoreditch mumblecore artisan typewriter cosby sweater ethical direct trade. Consequat brunch four loko, wes anderson excepteur seitan incididunt commodo bushwick hoodie Austin.
             </div>
           </div>
           <div class="testcase containerWithHeight">
-            <h3>Container with 'height'</h3>
-            <div class="target">
-              Fingerstache duis occaecat incididunt, mcsweeney's locavore dreamcatcher sunt godard occupy cillum eiusmod consectetur ad forage. Cardigan twee +1 laboris. Twee polaroid bicycle rights sunt DIY PBR, organic flexitarian mlkshk cardigan iphone ullamco pour-over skateboard. Vero aesthetic sartorial id locavore cillum post-ironic, 8-bit wayfarers keffiyeh williamsburg chillwave dolor. Cillum aesthetic aute, +1 cred officia squid shoreditch mumblecore artisan typewriter cosby sweater ethical direct trade. Consequat brunch four loko, wes anderson excepteur seitan incididunt commodo bushwick hoodie Austin thundercats nulla. Art party street art eiusmod, kogi laboris whatever freegan elit.
+            <h3>Div with 'height' on container</h3>
+            <div class="container">
+              <div class="target">
+                Fingerstache duis occaecat incididunt, mcsweeney's locavore dreamcatcher sunt godard occupy cillum eiusmod consectetur ad forage. Cardigan twee +1 laboris. Twee polaroid bicycle rights sunt DIY PBR, organic flexitarian mlkshk cardigan iphone ullamco pour-over skateboard. Vero aesthetic sartorial id locavore cillum post-ironic, 8-bit wayfarers keffiyeh williamsburg chillwave dolor. Cillum aesthetic aute, +1 cred officia squid shoreditch mumblecore artisan typewriter cosby sweater ethical direct trade. Consequat brunch four loko, wes anderson excepteur seitan incididunt commodo bushwick hoodie Austin.
+              </div>
+            </div>
+          </div>
+          <div class="testcase divWithHeightAndChild">
+            <h3>Div with 'height' and child</h3>
+            <div class="container target">
+              <div>
+                Fingerstache duis occaecat incididunt, mcsweeney's locavore dreamcatcher sunt godard occupy cillum eiusmod consectetur ad forage. Cardigan twee +1 laboris. Twee polaroid bicycle rights sunt DIY PBR, organic flexitarian mlkshk cardigan iphone ullamco pour-over skateboard. Vero aesthetic sartorial id locavore cillum post-ironic, 8-bit wayfarers keffiyeh williamsburg chillwave dolor. Cillum aesthetic aute, +1 cred officia squid shoreditch mumblecore artisan typewriter cosby sweater ethical direct trade. Consequat brunch four loko, wes anderson excepteur seitan incididunt commodo bushwick hoodie Austin.
+              </div>
+            </div>
+          </div>
+          <div class="testcase containerWithHeightAndMultipleChildren">
+            <h3>Multiple divs inside container with 'height'</h3>
+            <div class="container">
+              <div class="target">
+                Fingerstache duis occaecat incididunt, mcsweeney's locavore dreamcatcher sunt godard occupy cillum eiusmod consectetur ad forage. Cardigan twee +1 laboris. Twee polaroid bicycle rights sunt DIY PBR, organic flexitarian mlkshk cardigan iphone ullamco pour-over skateboard.
+              </div>
+              <div class="target">
+                Biodiesel post-ironic hoodie 3 wolf moon keffiyeh ad, qui commodo you probably haven't heard of them quinoa. Velit reprehenderit bushwick jean shorts, fixie sartorial vero carles portland godard brunch art party typewriter irure.
+              </div>
+            </div>
+          </div>
+          <div class="testcase divWithHeightAndChildren">
+            <h3>Div with 'height' and children</h3>
+            <div class="container target">
+              <div>
+                Fingerstache duis occaecat incididunt, mcsweeney's locavore dreamcatcher sunt godard occupy cillum eiusmod consectetur ad forage. Cardigan twee +1 laboris. Twee polaroid bicycle rights sunt DIY PBR, organic flexitarian mlkshk cardigan iphone ullamco pour-over skateboard.
+              </div>
+              <div>
+                Biodiesel post-ironic hoodie 3 wolf moon keffiyeh ad, qui commodo you probably haven't heard of them quinoa. Velit reprehenderit bushwick jean shorts, fixie sartorial vero carles portland godard brunch art party typewriter irure.
+              </div>
             </div>
           </div>
         </div>
