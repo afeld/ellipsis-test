@@ -1,12 +1,67 @@
 <html>
   <head>
     <title>Multiline Ellipses Library Tests</title>
+    <style>
+      #wrapper {
+        width: 85%;
+        max-width: 500px;
+        margin: auto;
+      }
+      .testsuite {
+      }
+      .testcase {
+        border: 1px solid black;
+        padding: 20px;
+      }
+
+      .divWithHeight .target {
+        height: 150px;
+      }
+    </style>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
     <script src="vendor/clamp.js"></script>
     <script src="vendor/jquery.autoellipsis.js"></script>
     <script src="vendor/jquery.dotdotdot.js"></script>
+    <script>
+      $(function(){
+        var plugins = [
+          { name: 'clamp' },
+          { name: 'jquery.autoellipsis' },
+          { name: 'jquery.dotdotdot' }
+        ];
+
+        var $testsuites = $('#testsuites'),
+          $testsuite = $('.testsuite'),
+          plugin, $clone;
+
+        for (var i = 0; i < plugins.length; i++){
+          plugin = plugins[i];
+          $clone = $testsuite.clone();
+          plugin.$clone = $clone;
+          $clone.find('.pluginName').text(plugin.name);
+          $testsuites.append($clone);
+        }
+
+        // remove the original
+        $testsuite.remove();
+        $testsuite = null;
+      });
+    </script>
   </head>
   <body>
-    Hello world
+    <div id="wrapper">
+      <h1>Multiline Ellipses Library Tests</h1>
+      <div id="testsuites">
+        <div class="testsuite">
+          <h2 class="pluginName"></h2>
+          <div class="testcase divWithHeight">
+            <h3>Div with height</h3>
+            <div class="target">
+              Fingerstache duis occaecat incididunt, mcsweeney's locavore dreamcatcher sunt godard occupy cillum eiusmod consectetur ad forage. Cardigan twee +1 laboris. Twee polaroid bicycle rights sunt DIY PBR, organic flexitarian mlkshk cardigan iphone ullamco pour-over skateboard. Vero aesthetic sartorial id locavore cillum post-ironic, 8-bit wayfarers keffiyeh williamsburg chillwave dolor. Cillum aesthetic aute, +1 cred officia squid shoreditch mumblecore artisan typewriter cosby sweater ethical direct trade. Consequat brunch four loko, wes anderson excepteur seitan incididunt commodo bushwick hoodie Austin thundercats nulla. Art party street art eiusmod, kogi laboris whatever freegan elit.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </body>
 </html>
