@@ -17,6 +17,9 @@
       .divWithHeight .target {
         height: 150px;
       }
+      .containerWithHeight {
+        height: 150px;
+      }
     </style>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
     <script src="vendor/clamp.js"></script>
@@ -27,38 +30,51 @@
         var plugins = [
           {
             name: 'clamp',
-            link: 'https://github.com/josephschmitt/Clamp.js'
+            link: 'https://github.com/josephschmitt/Clamp.js',
+            exec: function($el){
+              $clamp($el.get(0), { clamp: 'auto' });
+            }
           },
           {
             name: 'jquery.autoellipsis',
-            link: 'http://pvdspek.github.com/jquery.autoellipsis/'
+            link: 'http://pvdspek.github.com/jquery.autoellipsis/',
+            exec: function($el){
+              $el.ellipsis();
+            }
           },
           {
             name: 'jquery.dotdotdot',
-            link: 'http://dotdotdot.frebsite.nl/'
+            link: 'http://dotdotdot.frebsite.nl/',
+            exec: function($el){
+              $el.dotdotdot();
+            }
           }
         ];
 
         var $testsuites = $('#testsuites'),
-          $testsuite = $('.testsuite'),
+          $originalTestSuite = $('.testsuite'),
           plugin, $pluginLink, $clone;
+
+        // remove the original from the DOM
+        $originalTestSuite.remove();
 
         // clone the test suite for each plugin
         for (var i = 0; i < plugins.length; i++){
           plugin = plugins[i];
-          $clone = $testsuite.clone();
-          plugin.$clone = $clone;
+          $testSuite = $originalTestSuite.clone();
+          plugin.$testSuite = $testSuite;
 
-          $pluginLink = $clone.find('.pluginLink');
+          $pluginLink = $testSuite.find('.pluginLink');
           $pluginLink.attr('href', plugin.link);
           $pluginLink.find('h2').text(plugin.name);
 
-          $testsuites.append($clone);
-        }
+          $testsuites.append($testSuite);
 
-        // remove the original
-        $testsuite.remove();
-        $testsuite = null;
+          $testSuite.find('.testcase').each(function(i, el){
+            var $el = $(el);
+            plugin.exec($el);
+          });
+        }
       });
     </script>
   </head>
@@ -69,7 +85,13 @@
         <div class="testsuite">
           <a class="pluginLink"><h2></h2></a>
           <div class="testcase divWithHeight">
-            <h3>Div with height</h3>
+            <h3>Div with it's own 'height'</h3>
+            <div class="target">
+              Fingerstache duis occaecat incididunt, mcsweeney's locavore dreamcatcher sunt godard occupy cillum eiusmod consectetur ad forage. Cardigan twee +1 laboris. Twee polaroid bicycle rights sunt DIY PBR, organic flexitarian mlkshk cardigan iphone ullamco pour-over skateboard. Vero aesthetic sartorial id locavore cillum post-ironic, 8-bit wayfarers keffiyeh williamsburg chillwave dolor. Cillum aesthetic aute, +1 cred officia squid shoreditch mumblecore artisan typewriter cosby sweater ethical direct trade. Consequat brunch four loko, wes anderson excepteur seitan incididunt commodo bushwick hoodie Austin thundercats nulla. Art party street art eiusmod, kogi laboris whatever freegan elit.
+            </div>
+          </div>
+          <div class="testcase containerWithHeight">
+            <h3>Container with 'height'</h3>
             <div class="target">
               Fingerstache duis occaecat incididunt, mcsweeney's locavore dreamcatcher sunt godard occupy cillum eiusmod consectetur ad forage. Cardigan twee +1 laboris. Twee polaroid bicycle rights sunt DIY PBR, organic flexitarian mlkshk cardigan iphone ullamco pour-over skateboard. Vero aesthetic sartorial id locavore cillum post-ironic, 8-bit wayfarers keffiyeh williamsburg chillwave dolor. Cillum aesthetic aute, +1 cred officia squid shoreditch mumblecore artisan typewriter cosby sweater ethical direct trade. Consequat brunch four loko, wes anderson excepteur seitan incididunt commodo bushwick hoodie Austin thundercats nulla. Art party street art eiusmod, kogi laboris whatever freegan elit.
             </div>
